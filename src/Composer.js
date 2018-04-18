@@ -8,7 +8,6 @@ import { MIN_COMPOSER_HEIGHT, DEFAULT_PLACEHOLDER } from './Constant';
 import Color from './Color';
 
 export default class Composer extends React.Component {
-
   onContentSizeChange(e) {
     const { contentSize } = e.nativeEvent;
 
@@ -35,10 +34,14 @@ export default class Composer extends React.Component {
         placeholder={this.props.placeholder}
         placeholderTextColor={this.props.placeholderTextColor}
         multiline={this.props.multiline}
-        onChange={(e) => this.onContentSizeChange(e)}
-        onContentSizeChange={(e) => this.onContentSizeChange(e)}
-        onChangeText={(text) => this.onChangeText(text)}
-        style={[styles.textInput, this.props.textInputStyle, { height: this.props.composerHeight }]}
+        onChange={e => this.onContentSizeChange(e)}
+        onContentSizeChange={e => this.onContentSizeChange(e)}
+        onChangeText={text => this.onChangeText(text)}
+        style={[
+          styles.textInput,
+          this.props.textInputStyle,
+          { height: this.props.composerHeight },
+        ]}
         autoFocus={this.props.textInputAutoFocus}
         value={this.props.text}
         accessibilityLabel={this.props.text || this.props.placeholder}
@@ -49,23 +52,14 @@ export default class Composer extends React.Component {
       />
     );
   }
-
 }
 
 const styles = StyleSheet.create({
   textInput: {
     flex: 1,
-    marginLeft: 10,
-    fontSize: 16,
-    lineHeight: 16,
-    marginTop: Platform.select({
-      ios: 6,
-      android: 0,
-    }),
-    marginBottom: Platform.select({
-      ios: 5,
-      android: 3,
-    }),
+    marginStart: 8,
+    fontSize: 14,
+    textAlign: 'right',
   },
 });
 

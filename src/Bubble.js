@@ -180,10 +180,11 @@ const styles = {
     },
     wrapper: {
       borderRadius: 15,
-      backgroundColor: Color.leftBubbleBackground,
+      backgroundColor: Color.senderBubbleBackground,
       marginRight: 60,
       minHeight: 20,
       justifyContent: 'flex-end',
+      elevation: 8
     },
     containerToNext: {
       borderBottomLeftRadius: 3,
@@ -199,10 +200,11 @@ const styles = {
     },
     wrapper: {
       borderRadius: 15,
-      backgroundColor: Color.defaultBlue,
+      backgroundColor: Color.recieverBubbleBackground,
       marginLeft: 60,
       minHeight: 20,
       justifyContent: 'flex-end',
+      elevation: 8
     },
     containerToNext: {
       borderBottomRightRadius: 3,
@@ -213,7 +215,7 @@ const styles = {
   }),
   bottom: {
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-start',
   },
   tick: {
     fontSize: 10,

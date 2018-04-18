@@ -11,7 +11,7 @@ import { TIME_FORMAT } from './Constant';
 
 export default function Time({ position, containerStyle, currentMessage, timeFormat, textStyle }, context) {
   return (
-    <View style={[styles[position].container, containerStyle[position]]}>
+    <View style={[styles[position].container, containerStyle[position],]}>
       <Text style={[styles[position].text, textStyle[position]]}>
         {moment(currentMessage.createdAt)
           .locale(context.getLocale())
@@ -30,7 +30,7 @@ const containerStyle = {
 const textStyle = {
   fontSize: 10,
   backgroundColor: 'transparent',
-  textAlign: 'right',
+  textAlign: 'left',
 };
 
 const styles = {
@@ -39,7 +39,7 @@ const styles = {
       ...containerStyle,
     },
     text: {
-      color: Color.timeTextColor,
+      color: Color.senderBubbleTimeColor,
       ...textStyle,
     },
   }),
@@ -48,7 +48,7 @@ const styles = {
       ...containerStyle,
     },
     text: {
-      color: Color.white,
+      color: Color.recieverBubbleTimeColor,
       ...textStyle,
     },
   }),

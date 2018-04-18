@@ -10,7 +10,6 @@ import Actions from './Actions';
 import Color from './Color';
 
 export default class InputToolbar extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -23,8 +22,14 @@ export default class InputToolbar extends React.Component {
   }
 
   componentWillMount() {
-    this.keyboardWillShowListener = Keyboard.addListener('keyboardWillShow', this.keyboardWillShow);
-    this.keyboardWillHideListener = Keyboard.addListener('keyboardWillHide', this.keyboardWillHide);
+    this.keyboardWillShowListener = Keyboard.addListener(
+      'keyboardWillShow',
+      this.keyboardWillShow,
+    );
+    this.keyboardWillHideListener = Keyboard.addListener(
+      'keyboardWillHide',
+      this.keyboardWillHide,
+    );
   }
 
   componentWillUnmount() {
@@ -82,18 +87,30 @@ export default class InputToolbar extends React.Component {
   render() {
     return (
       <View
-        style={[styles.container, this.props.containerStyle, { position: this.state.position }]}
+        style={{
+          flex: 1,
+          ...StyleSheet.absoluteFillObject,
+          alignItems: 'flex-end',
+          marginBottom: 16,
+        }}
       >
-        <View style={[styles.primary, this.props.primaryStyle]}>
-          {this.renderActions()}
-          {this.renderComposer()}
-          {this.renderSend()}
+        <View
+          style={[
+            styles.container,
+            this.props.containerStyle,
+            { position: this.state.position },
+          ]}
+        >
+          <View style={[styles.primary, this.props.primaryStyle]}>
+            {this.renderSend()}
+            {this.renderComposer()}
+            {this.renderActions()}
+          </View>
+          {this.renderAccessory()}
         </View>
-        {this.renderAccessory()}
       </View>
     );
   }
-
 }
 
 const styles = StyleSheet.create({
@@ -104,10 +121,13 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
+    elevation: 8,
+    borderRadius: 36,
+    marginHorizontal: 16,
   },
   primary: {
     flexDirection: 'row',
-    alignItems: 'flex-end',
+    alignItems: 'center',
   },
   accessory: {
     height: 44,

@@ -2,6 +2,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Linking, StyleSheet, Text, View, ViewPropTypes } from 'react-native';
+import Color from './Color';
 
 import ParsedText from 'react-native-parsed-text';
 import Communications from 'react-native-communications';
@@ -96,7 +97,7 @@ export default class MessageText extends React.Component {
 }
 
 const textStyle = {
-  fontSize: 16,
+  fontSize: 14,
   lineHeight: 20,
   marginTop: 5,
   marginBottom: 5,
@@ -119,7 +120,7 @@ const styles = {
   right: StyleSheet.create({
     container: {},
     text: {
-      color: 'white',
+      color: 'black',
       ...textStyle,
     },
     link: {
