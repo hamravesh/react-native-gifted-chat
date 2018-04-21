@@ -98,7 +98,8 @@ export default class InputToolbar extends React.Component {
           style={[
             styles.container,
             this.props.containerStyle,
-            { position: this.state.position },
+            { position: this.state.position,
+              elevation: this.props.inputToolbarElevation },
           ]}
         >
           <View style={[styles.primary, this.props.primaryStyle]}>
@@ -121,7 +122,6 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    elevation: 8,
     borderRadius: 36,
     marginHorizontal: 16,
   },
