@@ -115,6 +115,8 @@ export default class MessageContainer extends React.PureComponent {
           renderFooter={this.renderLoadEarlier}
           {...this.props.invertibleScrollViewProps}
           ListFooterComponent={this.renderHeaderWrapper}
+          onEndReached={this.props.onEndReached}
+          onEndReachedThreshold={this.props.onEndReachedThreshold}
         />
       </View>
     );
@@ -160,4 +162,6 @@ MessageContainer.propTypes = {
   inverted: PropTypes.bool,
   loadEarlier: PropTypes.bool,
   invertibleScrollViewProps: PropTypes.object, // TODO: support or not?
+  onEndReached: PropTypes.func,
+  onEndReachedThreshold: PropTypes.number,
 };
